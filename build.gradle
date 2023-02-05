@@ -1,0 +1,51 @@
+repositories {
+    mavenCentral()
+}
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:3.6.7"
+    }
+}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: "net.serenity-bdd.serenity-gradle-plugin"
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+dependencies {
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.24.2'
+    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.6'
+    implementation 'com.google.guava:guava:30.1.1-jre'
+    testImplementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '3.6.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
+    testImplementation 'net.serenity-bdd:serenity-core:3.6.9'
+    testImplementation 'net.serenity-bdd:serenity-junit:3.6.9'
+    testImplementation ('junit:junit:4.12')
+    //implementation
+    implementation group: 'net.serenity-bdd', name: 'serenity-cucumber6', version: '2.6.0'
+    implementation group: 'io.cucumber', name: 'cucumber-core', version: '6.11.0'
+    implementation 'net.serenity-bdd:serenity-cucumber6:2.3.2'
+    implementation 'net.serenity-bdd:serenity-cucumber:3.6.9'
+    implementation 'net.serenity-bdd:serenity-core:3.6.9'
+    implementation 'net.serenity-bdd:serenity-junit:3.6.9'
+    implementation 'net.serenity-bdd:serenity-screenplay:3.6.9'
+    implementation 'net.serenity-bdd:serenity-screenplay-webdriver:3.6.9'
+}
+testing {
+    suites {
+        // Configure the built-in test suite
+        test {
+            useJUnit()
+        }
+
+    }
+}
+
+
